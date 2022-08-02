@@ -1,4 +1,4 @@
-import { Outlet, useLocation, Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import {
   MovieContainer,
   Poster,
