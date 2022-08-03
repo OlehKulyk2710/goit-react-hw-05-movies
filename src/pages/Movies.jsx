@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 import {
   Section,
@@ -12,21 +13,21 @@ import { getMoviesByQuery } from '../services/apiMovies';
 
 export const Movies = () => {
   const [moviesByQuery, setmoviesByQuery] = useState([]);
-  const [isMoviesByQuery, setIsMoviesByQuery] = useState(false);
   const [error, setError] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
 
   useEffect(() => {
     if (!query) return;
-    setIsMoviesByQuery(false);
     setmoviesByQuery([]);
 
     const response = getMoviesByQuery(query);
     response
       .then(res => {
         const data = res.data.results;
-        data.length ? setmoviesByQuery(data) : setIsMoviesByQuery(true);
+        data.length
+          ? setmoviesByQuery(data)
+          : toast.error('Bad request. Try again!');
       })
       .catch(error => {
         console.log(error.message);
@@ -47,7 +48,6 @@ export const Movies = () => {
           <SearchMovie onSubmit={handleSubmit} />
         </Container>
       </Section>
-      {isMoviesByQuery && <div>Bad request. Try again!</div>}
       {!!moviesByQuery.length && (
         <Section>
           <Container>
