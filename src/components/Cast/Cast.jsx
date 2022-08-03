@@ -1,44 +1,24 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { Container, Heading } from 'components';
+import { useParams } from 'react-router-dom';
 import {
-  CastList,
-  CastItem,
-  Character,
-  ActorPhoto,
   ActorName,
+  ActorPhoto,
+  CastItem,
+  CastList,
+  Character,
 } from './Cast.styled';
 
-import { getMovieCredits } from 'services/apiMovies';
+import { useFetchMovieCredits } from 'hooks';
 
 export const Cast = () => {
-  const [movieCredits, setMovieCredits] = useState([]);
-  const [isCastData, setIsCastData] = useState(true);
-  const [error, setError] = useState(false);
   const { movieId } = useParams();
-
-  useEffect(() => {
-    if (!movieId) return;
-
-    const response = getMovieCredits(movieId);
-    response
-      .then(res => {
-        const data = res.data.cast;
-        data.length ? setMovieCredits(data) : setIsCastData(false);
-      })
-      .catch(error => {
-        console.log(error.message);
-        setError(true);
-      });
-  }, [movieId]);
+  const { movieCredits, isCastData } = useFetchMovieCredits(movieId);
 
   const shortedMovieCredits = movieCredits.splice(0, 10);
 
   return (
     <Container>
-      {error && <div>Something went wrong</div>}
       {!isCastData && <p>There is no information!!!</p>}
-
       {!!shortedMovieCredits.length && (
         <>
           <Heading>Cast (some of them)</Heading>
