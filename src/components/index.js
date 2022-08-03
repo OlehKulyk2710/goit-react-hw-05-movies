@@ -5,5 +5,6 @@ export * from './Header/Header.styled';
 export * from './MoviesList/MoviesList';
 export * from './SearchMovie/SearchMovie';
 export * from './Movie/Movie';
-export * from './Cast/Cast';
 export * from './CastReviewLinks/CastReviewLinks';
+export * from './Cast/Cast';
+export * from './Reviews/Reviews';

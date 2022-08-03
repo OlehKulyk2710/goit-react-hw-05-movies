@@ -16,3 +16,15 @@ export const getMoviesByQuery = async query => {
 export const getMovieDetails = async id => {
   return await axios.get(`/3/movie/${id}?api_key=${API_KEY}&language=en-US`);
 };
+
+export const getMovieCredits = async id => {
+  return await axios.get(
+    `/3/movie/${id}/credits?api_key=${API_KEY}&language=en-US`
+  );
+};
+
+export const getMovieReviews = async id => {
+  return await axios.get(
+    `/3/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`
+  );
+};

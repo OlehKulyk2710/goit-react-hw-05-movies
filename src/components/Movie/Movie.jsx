@@ -1,4 +1,3 @@
-import { useLocation, Link } from 'react-router-dom';
 import {
   MovieContainer,
   Poster,
@@ -10,8 +9,6 @@ import {
 import defaultPoster from '../../images/images.png';
 
 export const Movie = ({ data }) => {
-  const location = useLocation();
-
   const { title, overview, genres, poster_path, vote_average } = data;
   if (!title) return;
   const userScore = Math.floor(vote_average * 10);
@@ -22,7 +19,6 @@ export const Movie = ({ data }) => {
 
   return (
     <MovieContainer>
-      <Link to={location.state.from}>Back to</Link>
       <Poster
         src={
           poster_path

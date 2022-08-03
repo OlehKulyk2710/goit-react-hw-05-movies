@@ -26,7 +26,8 @@ export const NavLinkStyled = styled(NavLink)`
     margin-right: 25px;
   }
 
-  :hover {
+  :hover,
+  :focus {
     transform: scale(1.05);
   }
 

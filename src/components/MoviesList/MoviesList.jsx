@@ -4,7 +4,6 @@ import { Movies, Movie } from './MoviesList.styled';
 
 export const MoviesList = ({ data }) => {
   const location = useLocation();
-  //   console.log('location', location);
   return (
     <Movies>
       {data.map(({ id, title }) => (

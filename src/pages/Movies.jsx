@@ -12,16 +12,22 @@ import { getMoviesByQuery } from '../services/apiMovies';
 
 export const Movies = () => {
   const [moviesByQuery, setmoviesByQuery] = useState([]);
+  const [isMoviesByQuery, setIsMoviesByQuery] = useState(false);
   const [error, setError] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
 
   useEffect(() => {
     if (!query) return;
+    setIsMoviesByQuery(false);
+    setmoviesByQuery([]);
 
     const response = getMoviesByQuery(query);
     response
-      .then(res => setmoviesByQuery(res.data.results))
+      .then(res => {
+        const data = res.data.results;
+        data.length ? setmoviesByQuery(data) : setIsMoviesByQuery(true);
+      })
       .catch(error => {
         console.log(error.message);
         setError(true);
@@ -41,6 +47,7 @@ export const Movies = () => {
           <SearchMovie onSubmit={handleSubmit} />
         </Container>
       </Section>
+      {isMoviesByQuery && <div>Bad request. Try again!</div>}
       {!!moviesByQuery.length && (
         <Section>
           <Container>

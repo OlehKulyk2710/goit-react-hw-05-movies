@@ -1,14 +1,20 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { LinksList, LinkItem } from './CastReviewLinks.styled';
 
-export const CastReviewLinks = () => {
+export const CastReviewLinks = ({ goBackLink }) => {
+  const { movieId } = useParams();
+
   return (
     <LinksList>
       <LinkItem>
-        <Link to="/movies/:movieID/cast">Cast</Link>
+        <Link to={`/movies/${movieId}/cast`} state={{ from: goBackLink }}>
+          Cast
+        </Link>
       </LinkItem>
       <LinkItem>
-        <Link to="/movies/:movieID/review">Reviews</Link>
+        <Link to={`/movies/${movieId}/reviews`} state={{ from: goBackLink }}>
+          Reviews
+        </Link>
       </LinkItem>
     </LinksList>
   );

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Form, Label, Input, Submit } from './SearchMovie.styled';
 
 export const SearchMovie = ({ onSubmit }) => {
   const [inputValue, setInputValue] = useState('');
@@ -16,16 +17,17 @@ export const SearchMovie = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        <input
+    <Form onSubmit={handleSubmit}>
+      <Label>
+        <Input
           type="text"
           name="search"
+          placeholder="Enter a movie name"
           value={inputValue}
           onChange={e => setInputValue(e.target.value)}
         />
-      </label>
-      <button type="submit">Search</button>
-    </form>
+      </Label>
+      <Submit type="submit">Search</Submit>
+    </Form>
   );
 };
