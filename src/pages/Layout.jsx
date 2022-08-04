@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { Header, Main } from 'components';
 import { Toaster } from 'react-hot-toast';
 
-export const Layout = () => {
+const Layout = () => {
   return (
     <>
       <Header />
@@ -13,3 +13,5 @@ export const Layout = () => {
     </>
   );
 };
+
+export default Layout;

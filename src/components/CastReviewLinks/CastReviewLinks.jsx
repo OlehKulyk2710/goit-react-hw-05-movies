@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { LinksList, LinkItem } from './CastReviewLinks.styled';
+import PropTypes from 'prop-types';
 
 export const CastReviewLinks = ({ goBackLink }) => {
   const { movieId } = useParams();
@@ -18,4 +19,8 @@ export const CastReviewLinks = ({ goBackLink }) => {
       </LinkItem>
     </LinksList>
   );
+};
+
+CastReviewLinks.propTypes = {
+  goBackLink: PropTypes.object,
 };

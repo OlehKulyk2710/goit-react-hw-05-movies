@@ -11,7 +11,7 @@ import {
 } from 'components';
 import { useFetchMovieDetails } from 'hooks';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { movieDetails, isMovieDetails, error } = useFetchMovieDetails();
   const location = useLocation();
   const goBackLink = location?.state?.from ?? '/';
@@ -43,3 +43,5 @@ export const MovieDetails = () => {
     </>
   );
 };
+
+export default MovieDetails;

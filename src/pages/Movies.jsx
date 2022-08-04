@@ -9,7 +9,7 @@ import {
   MoviesList,
 } from 'components';
 
-export const Movies = () => {
+const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
 
@@ -37,3 +37,5 @@ export const Movies = () => {
     </>
   );
 };
+
+export default Movies;

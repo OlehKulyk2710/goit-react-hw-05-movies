@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Form, Label, Input, Submit } from './SearchMovie.styled';
+import PropTypes from 'prop-types';
 
 export const SearchMovie = ({ onSubmit }) => {
   const [inputValue, setInputValue] = useState('');
@@ -30,4 +31,8 @@ export const SearchMovie = ({ onSubmit }) => {
       <Submit type="submit">Search</Submit>
     </Form>
   );
+};
+
+SearchMovie.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };

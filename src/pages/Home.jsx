@@ -1,7 +1,7 @@
 import { Container, Heading, MoviesList, Section } from 'components';
 import { useFetchTrendingMovies } from 'hooks';
 
-export const Home = () => {
+const Home = () => {
   const { trendingMovies } = useFetchTrendingMovies();
 
   return (
@@ -13,3 +13,5 @@ export const Home = () => {
     </Section>
   );
 };
+
+export default Home;

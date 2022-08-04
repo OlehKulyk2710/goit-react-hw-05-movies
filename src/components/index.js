@@ -8,3 +8,4 @@ export * from './Movie/Movie';
 export * from './CastReviewLinks/CastReviewLinks';
 export * from './Cast/Cast';
 export * from './Reviews/Reviews';
+export * from './NotFound/NotFound';

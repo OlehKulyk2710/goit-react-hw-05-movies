@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Movies, Movie } from './MoviesList.styled';
+import PropTypes from 'prop-types';
 
 export const MoviesList = ({ data }) => {
   const location = useLocation();
@@ -14,4 +15,13 @@ export const MoviesList = ({ data }) => {
       ))}
     </Movies>
   );
+};
+
+MoviesList.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string,
+    })
+  ),
 };

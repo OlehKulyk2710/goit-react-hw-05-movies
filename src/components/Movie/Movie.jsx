@@ -6,6 +6,7 @@ import {
   Title,
   Description,
 } from './Movie.styled';
+import PropTypes from 'prop-types';
 import defaultPoster from '../../images/images.png';
 
 export const Movie = ({ data }) => {
@@ -43,4 +44,14 @@ export const Movie = ({ data }) => {
       </DetailsList>
     </MovieContainer>
   );
+};
+
+Movie.propTypes = {
+  data: PropTypes.shape({
+    title: PropTypes.string,
+    overview: PropTypes.string,
+    genres: PropTypes.array,
+    poster_path: PropTypes.string,
+    vote_average: PropTypes.number,
+  }),
 };
