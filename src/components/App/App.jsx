@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
-import { Cast, Reviews, NotFound } from 'components';
+import { NotFound } from 'components';
 
 const Layout = lazy(() =>
   import('../../pages/Layout' /* webpackChunkName: "Layout" */)
@@ -13,6 +13,14 @@ const Movies = lazy(
 );
 const MovieDetails = lazy(() =>
   import('../../pages/MovieDetails' /* webpackChunkName: "MovieDetails" */)
+);
+const Cast = lazy(() =>
+  import('../../components/Cast/Cast' /* webpackChunkName: "MovieDetails" */)
+);
+const Reviews = lazy(() =>
+  import(
+    '../../components/Reviews/Reviews' /* webpackChunkName: "MovieDetails" */
+  )
 );
 
 export const App = () => {

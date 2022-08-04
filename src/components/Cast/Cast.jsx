@@ -10,7 +10,7 @@ import {
 
 import { useFetchMovieCredits } from 'hooks';
 
-export const Cast = () => {
+const Cast = () => {
   const { movieId } = useParams();
   const { movieCredits, isCastData } = useFetchMovieCredits(movieId);
 
@@ -45,3 +45,5 @@ export const Cast = () => {
     </Container>
   );
 };
+
+export default Cast;

@@ -4,7 +4,7 @@ import { ReviewsList, ReviewsItem, Author, Content } from './Reviews.styled';
 
 import { useFetchMovieReviews } from 'hooks';
 
-export const Reviews = () => {
+const Reviews = () => {
   const { movieId } = useParams();
   const { movieReviews, isMovieReviews } = useFetchMovieReviews(movieId);
 
@@ -27,3 +27,5 @@ export const Reviews = () => {
     </Container>
   );
 };
+
+export default Reviews;
